@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: [['es2015', {modules: false}], 'react']
         }
       }
     ]
@@ -33,6 +34,7 @@ module.exports = {
       filename: 'index.html',
       title: 'Output Management'
     }),
+    new webpack.optimize.UglifyJsPlugin({beautify: true}),
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
