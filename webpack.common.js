@@ -1,7 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -9,11 +8,6 @@ module.exports = {
     'react-hot-loader/patch',
     './src/index.js'
   ],
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    hot: true
-  },
   module: {
     rules: [
       {
@@ -33,9 +27,7 @@ module.exports = {
       inject: 'head',
       filename: 'index.html',
       title: 'Output Management'
-    }),
-    new UglifyJSPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ],
   output: {
     filename: 'bundle.js',
