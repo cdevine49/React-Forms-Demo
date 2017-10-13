@@ -34,7 +34,7 @@ module.exports = {
       filename: 'index.html',
       title: 'Output Management'
     }),
-    new webpack.optimize.UglifyJsPlugin({beautify: true}),
+    new UglifyJSPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
