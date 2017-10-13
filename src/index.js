@@ -1,16 +1,18 @@
-import printMe from './print.js';
-function component() {
-  var element = document.createElement('div');
-  var button = document.createElement('button');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import App from './app.js';
 
-  element.innerHTML = "Hello Webpack";
-
-  button.innerHTML = 'Console log';
-  button.onclick = printMe;
-
-  element.appendChild(button);
-
-  return element;
+const render = App => {
+  ReactDOM.render(
+    <AppContainer>
+      <App />
+    </AppContainer>,
+    document.getElementById('root')
+  );
 };
 
-document.body.appendChild(component());
+document.addEventListener('DOMContentLoaded', () => {
+  render(App);
+
+});
