@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack --config webpack.dev.js",
+    "dev:server": "webpack-dev-server --config webpack.dev.js",
     "lint": "eslint src/**",
     "lint:watch": "esw -w src/**",
     "webpack": "webpack --watch",
